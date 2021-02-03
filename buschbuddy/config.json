@@ -1,0 +1,31 @@
+{
+    "server": {
+        "port": 8004
+        
+    },
+    "app": {
+        "apiPrefix" : "",
+        "url" : "https://abinbev-prod-botkit.kore.ai"
+    },
+    "credentials": {
+        "appId": "cs-194a0d87-606c-59a4-8846-4773b9fa95fb",
+        "apikey": "QCSHjeH3V6mBoFQtVO9foMxzyrmXfMulYvPnhRMUKOg="
+    },
+    "bot":{
+         "name":"Busch Guy",
+         "id":"st-a83d2cba-c4bb-5c50-8e5c-39eedba2edec"
+
+
+    },
+    "redis": {
+        "options": {
+            "host": "abinbevbushbuddy-prod-redis.8vgk78.ng.0001.use1.cache.amazonaws.com",
+            "port": 6379
+        },
+        "available": true,
+        "ttl":240
+
+    },
+    "sfdc_config_file":"./salesforce_config_prod.json",
+    "chatAllowedMetros":["new york"]
+}

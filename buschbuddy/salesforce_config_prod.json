@@ -1,0 +1,32 @@
+{
+  "live_agent": {
+    "liveAgentUrl": "https://d.la3-c2-ph2.salesforceliveagent.com/chat/rest",
+    "organizationId": "00DU0000000Lxoh",
+    "deploymentId": "5720B000000PFXa",
+    "screenResolution": "1900x1080",
+    "userAgent": "Mozilla/5.0",
+    "apiVersion": "40",
+    "language": "en-US",
+    "buttonId": "5730B000000PGI0"
+  },
+  "oauth": {
+    "client_id": "3MVG9QDx8IX8nP5ThC5geBZTifYIOFnvMfkD28nNouUbGVqbsJpN22F.C.Xnpl.mU8V8Nc.Hq7z2GQ4lzu0vU",
+    "client_secret": "F90022E12C06B9F222131039B667931816D40E9203CB28575E0611BDE0888F45",
+    "redirect_URI": "https://naz.my.salesforce.com/oAuth2/callback",
+    "username": "integrationsfkoreai@salesforce.com",
+    "password": "Integrationsf@123Pmjd3N1VqTh45WJCz5HcHmBS"
+  },
+  "case": {
+    "api_URL": "https://naz.my.salesforce.com/services/data/v47.0"
+  },
+  "brands": {
+    "BSH": "aCi0B000000CtmZ",
+    "BHL": "aCi0B000000Ctmb",
+    "IBH": "aCi0B000000Ctma",
+    "BNA": "aCi0B000000Ctmc",
+    "BHA": "aCi4O000000bmsA"
+  },
+  "SFDC_TOKEN_URL": "https://login.salesforce.com/services/oauth2/token",
+  "SFDC_API_URL": "https://naz.my.salesforce.com/"
+}
+

@@ -7,12 +7,8 @@
         "url": "http://localhost"
     },
     "credentials": {
-        "apikey": "test_api_key",
-        "appId": "test_app_id",
-        "st-67890":{
-            "apikey": "test_api_key2",
-            "appId": "test_app_id2"
-        }
+        "apikey": "KrEGvCEbRHUKTRm5VjLoTGvUAEHQ9jnAzu+enNJiJm4=",
+        "appId": "cs-793d622f-f164-5064-a757-52dfa28fab20"
     },
     "redis": {
         "options": {
