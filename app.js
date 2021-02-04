@@ -16,4 +16,5 @@ server.start();
 //sdk.registerBot(require('./OrderAPizza.js'));
 //sdk.registerBot(require('./BotVariables.js'));
 //sdk.registerBot(require('./LiveChat.js'));
-sdk.registerBot(require('./Hook.js'));
+//sdk.registerBot(require('./Hook.js'));
+sdk.registerBot(require('./BotVariables.js'));
