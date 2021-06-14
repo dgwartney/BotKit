@@ -4,10 +4,19 @@ let request = require("request");
 let config = require("./config");
 let faker = require('faker');
 let validator = require('validator');
+const wordsToNumbers = require('words-to-numbers').wordsToNumbers
 const log4js = require("log4js");
 const logger = log4js.getLogger();
 logger.level = "DEBUG";
 
+/**
+ *
+ * @param message
+ * @returns {string | number}
+ */
+function convert_to_number(message) {
+    return wordsToNumbers(message);
+}
 
 /**
  *
@@ -32,7 +41,16 @@ module.exports = {
     botName: config.bot.name,
     on_user_message: function (requestId, data, callback) {
         logger.debug(`on_user_message()=> requestId:${requestId}, data.message: ${data.message}`);
-        sdk.sendBotMessage(data, callback);
+        const re = /^wordsToNumbers\s?(.*)/;
+        const found = data.message.match(re);
+        console.log(JSON.stringify(found));
+        if (found) {
+            data.message = convert_to_number(found[1]).toString();
+            console.log(convert_to_number(found[1]));
+            sdk.sendUserMessage(data, callback)
+        } else {
+            sdk.sendBotMessage(data, callback);
+        }
     },
     on_bot_message: function (requestId, data, callback) {
         logger.debug(`on_bot_message()=> requestId:${requestId}, data.message: ${data.message}`);
