@@ -3,16 +3,28 @@ let Promise = sdk.Promise;
 let request = require("request");
 let config = require("./config");
 let faker = require('faker');
+let validator = require('validator');
 const log4js = require("log4js");
 const logger = log4js.getLogger();
 logger.level = "DEBUG";
+
+
+/**
+ *
+ * @param credit_card
+ * @returns {*}
+ */
+function validate_credit_card(credit_card) {
+    return validator.isCreditCard(credit_card);
+}
+
 /**
  * Generates a random user using the Faker library
  *
  * @returns {string}
  */
 function random_user() {
-    return 'Hello World!';
+    return faker.fake("{{name.firstName}} {{name.lastName}}");
 }
 
 module.exports = {
@@ -27,10 +39,12 @@ module.exports = {
         sdk.sendUserMessage(data, callback);
     },
     on_webhook: function (requestId, data, componentName, callback) {
-        logger.debug(`on_bot_message()=> requestId:${requestId}, componentName: ${componentName}, data.message: ${data.message}`);
         logger.debug(`on_webhook()=> requestId:${requestId}, componentName: ${componentName}, data.message: ${data.message}`);
         if (componentName === "RandomUser") {
             data.context.randomUser = random_user();
+        }
+        if (componentName === "Is Credit Card Number") {
+            data.context.valid_credit_card = validate_credit_card(data.context.CreditCardNumber);
         }
         callback(null, data);
     },
