@@ -10,18 +10,18 @@ const logger = log4js.getLogger();
 logger.level = "DEBUG";
 
 /**
- *
+ * Converts any number words into the their corresponding arabic numbers.
  * @param message
- * @returns {string | number}
+ * @returns {string}
  */
 function convert_to_number(message) {
     return wordsToNumbers(message).toString();
 }
 
 /**
- *
+ * Uses Validator library to check for valid credit cards
  * @param credit_card
- * @returns {*}
+ * @returns {true | false}
  */
 function validate_credit_card(credit_card) {
     return validator.isCreditCard(credit_card);
