@@ -15,7 +15,7 @@ logger.level = "DEBUG";
  * @returns {string | number}
  */
 function convert_to_number(message) {
-    return wordsToNumbers(message);
+    return wordsToNumbers(message).toString();
 }
 
 /**
@@ -41,12 +41,11 @@ module.exports = {
     botName: config.bot.name,
     on_user_message: function (requestId, data, callback) {
         logger.debug(`on_user_message()=> requestId:${requestId}, data.message: ${data.message}`);
-        const re = /^wordsToNumbers\s?(.*)/;
-        const found = data.message.match(re);
-        console.log(JSON.stringify(found));
-        if (found) {
-            data.message = convert_to_number(found[1]).toString();
-            console.log(convert_to_number(found[1]));
+        let oldMessage = data.message;
+        let newMessage = convert_to_number(oldMessage);
+        logger.debug(`oldMessage: ${oldMessage}, newMessage: ${newMessage}`);
+        if (oldMessage !== newMessage) {
+            data.message = newMessage;
             sdk.sendUserMessage(data, callback)
         } else {
             sdk.sendBotMessage(data, callback);
