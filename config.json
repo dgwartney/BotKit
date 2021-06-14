@@ -1,14 +1,18 @@
 {
     "server": {
-        "port": 8003
+        "port": 8080
     },
     "app": {
         "apiPrefix" : "",
         "url": "http://localhost"
     },
     "credentials": {
-        "apikey": "KrEGvCEbRHUKTRm5VjLoTGvUAEHQ9jnAzu+enNJiJm4=",
-        "appId": "cs-793d622f-f164-5064-a757-52dfa28fab20"
+        "apikey": "H6faTj23NZSFKlbAfkYsBxEQVUs8Udxvcxe7lW7KbA8=",
+        "appId": "cs-98c817ae-e585-52b0-84ce-538dc7889d4e"
+    },
+    "bot":{
+        "name":"My Bot Kit",
+        "id":"st-937cc8f7-34e6-5d37-83bf-93f219a3f763"
     },
     "redis": {
         "options": {
