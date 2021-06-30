@@ -7,12 +7,12 @@
         "url": "http://localhost"
     },
     "credentials": {
-        "apikey": "H6faTj23NZSFKlbAfkYsBxEQVUs8Udxvcxe7lW7KbA8=",
-        "appId": "cs-98c817ae-e585-52b0-84ce-538dc7889d4e"
+        "appId": "cs-9e717bfd-32e1-541e-aa86-b8a52d7274bd",
+        "apikey": "G6UUypj55gtTErZpOD6/huyckTokbUUezkm8TyvDE7o="
     },
     "bot":{
-        "name":"My Bot Kit",
-        "id":"st-937cc8f7-34e6-5d37-83bf-93f219a3f763"
+        "name":"My Salesforce",
+        "id":"st-2fc459e5-eb2f-5382-b343-00bf854b8aa7"
     },
     "redis": {
         "options": {
@@ -26,5 +26,5 @@
     },
     "liveagentlicense": "8947569",
     "supportsMessageAck": true,
-    "languages":["en","de"]
+    "languages":["en"]
 }

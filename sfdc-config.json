@@ -1,0 +1,11 @@
+{
+  "oauth": {
+    "token_uri": "https://login.salesforce.com/",
+    "client_id": "3MVG9QDx8IX8nP5ThC5geBZTifYIOFnvMfkD28nNouUbGVqbsJpN22F.C.Xnpl.mU8V8Nc.Hq7z2GQ4lzu0vU",
+    "client_secret": "F90022E12C06B9F222131039B667931816D40E9203CB28575E0611BDE0888F45",
+    "redirect_uri": "https://naz.my.salesforce.com/oAuth2/callback",
+    "username": "integrationsfkoreai@salesforce.com",
+    "password": "Integrationsf@123Pmjd3N1VqTh45WJCz5HcHmBS"
+  },
+  "api_uri": "https://naz.my.salesforce.com/services/data/v47.0"
+}

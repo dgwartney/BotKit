@@ -8,4 +8,4 @@ var server = new Server(config, app);
 
 server.start();
 
-sdk.registerBot(require('./Hook.js'));
+sdk.registerBot(require('./sfdc.js'));
