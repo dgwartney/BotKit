@@ -1,5 +1,6 @@
 let sdk = require("./lib/sdk");
 let config = require("./config");
+let sfdc_config = require("./sfdc-config.json");
 const jsforce = require('jsforce');
 const log4js = require("log4js");
 const logger = log4js.getLogger();
@@ -7,49 +8,45 @@ logger.level = "DEBUG";
 
 const API_URI = config.api_url;
 
-
 /**
- * Creates an access via Oauth authentication
+ * Create a new contact in Salesforce
+ * @param data
+ * @param first_name
+ * @param last_name
+ * @param email
+ * @param phone
  */
-function requestAccessToken() {
-    let username = config.oauth.username;
-    let password = config.oauth.password;
-    let conn = new jsforce.Connection({
-        oauth2 : {
-            loginUrl : config.oauth.token_uri,
-            clientId : config.oauth.client_id,
-            clientSecret : config.oauth.client_secret,
-            redirectUri : config.oauth.redirect_uri
+function createContact(data, first_name, last_name, email, phone) {
+    logger.debug(`first_name: ${first_name}`);
+    logger.debug(`last_name: ${last_name}`);
+    logger.debug(`email: ${email}`);
+    const conn = new jsforce.Connection({
+        loginUrl: sfdc_config.oauth.token_uri
+    })
+    conn.login(sfdc_config.oauth.username, sfdc_config.oauth.password, function (err, userInfo) {
+        if (err) {
+            return logger.error(err)
         }
-    });
+        logger.debug(conn.accessToken)
+        logger.debug(conn.instanceUrl)
+        logger.debug(`userInfo: ${JSON.stringify(userInfo)}`);
 
-    conn.login(username, password, function(err, userInfo) {
-        logger.info("login()");
-        if (err) { return console.error(err); }
-        // Now you can get the access token and instance URL information.
-        // Save them to establish connection next time.
-        logger.trace(conn.accessToken);
-        logger.trace(conn.instanceUrl);
-        // logged in user property
-        logger.trace(`authtoken is-> ${conn.accessToken}`);
-        cache.set("token", conn.accessToken);
-        logger.trace(`Access Token from cache ${cache.get("token")}`);
-        return conn.accessToken;
+        // Create contact object
+        return conn.sobject('Contact').create(
+            {
+                FirstName: first_name,
+                LastName: last_name,
+                Email: email,
+                Phone: phone
+            },
+            function (err, ret) {
+                if (err || !ret.success) {
+                    return logger.error(err, ret)
+                }
+                logger.debug(`Created record id : ${ret.id}`)
+            }
+        );
     });
-}
-
-/**
- * Requests an access token if not cached.
- *
- * @returns access token
- */
-function getJWTToken() {
-    if (cache.get("token")) {
-        logger.trace(cache.get("token"));
-        return cache.get("token");
-    } else {
-        return requestAccessToken();
-    }
 }
 
 module.exports = {
@@ -65,7 +62,13 @@ module.exports = {
     },
     on_webhook: function (requestId, data, componentName, callback) {
         logger.debug(`on_webhook()=> requestId:${requestId}, componentName: ${componentName}, data.message: ${data.message}`);
-        data.context.contact_id = Math.round(Math.random() * 1000);
+        if (componentName === 'CreateSFDCContact') {
+            createContact(data,
+                data.context.first_name,
+                data.context.last_name,
+                data.context.email,
+                data.context.phone);
+        }
         callback(null, data);
     },
     on_agent_transfer: function (requestId, data, callback) {
