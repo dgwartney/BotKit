@@ -1,11 +1,11 @@
 {
   "oauth": {
     "token_uri": "https://login.salesforce.com/",
-    "client_id": "3MVG9QDx8IX8nP5ThC5geBZTifYIOFnvMfkD28nNouUbGVqbsJpN22F.C.Xnpl.mU8V8Nc.Hq7z2GQ4lzu0vU",
-    "client_secret": "F90022E12C06B9F222131039B667931816D40E9203CB28575E0611BDE0888F45",
-    "redirect_uri": "https://naz.my.salesforce.com/oAuth2/callback",
-    "username": "integrationsfkoreai@salesforce.com",
-    "password": "Integrationsf@123Pmjd3N1VqTh45WJCz5HcHmBS"
+    "client_id": "3MVG9kBt168mda_8AkkCG0xrSM1t._hhNOpZ.xSFgFOPT8_85m.M4DkmXFRwmq3eeMtdE2B29J9yqsNzPBDId",
+    "client_secret": "7F59A1DA157828186A64463C572ADBF4A565EEE09F5C99F018388C25EAEC4F80",
+    "redirect_uri": "https://login.salesforce.com/services/oauth2/success",
+    "username": "david.gwartney@kore.com",
+    "password": "Lerma@50fIz52g6C5mdDKym8KR1Uqvla"
   },
   "api_uri": "https://naz.my.salesforce.com/services/data/v47.0"
 }
